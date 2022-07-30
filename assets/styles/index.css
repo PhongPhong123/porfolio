@@ -1,0 +1,11 @@
+@import url('./cursor.css');
+@import url('./menu.css');
+@import url('./tech.css');
+
+.primary-font {
+    font-family: 'Press Start 2P', cursive;
+}
+
+.secondary-font {
+    font-family: 'Manrope', sans-serif;
+}

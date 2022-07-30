@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viet Anh Porfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@800&family=Press+Start+2P&family=Roboto:ital,wght@0,400;0,700;1,500&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../configs/taiwind.config.js"></script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .main-background {
+                background: linear-gradient(to right, #ddd6f3 00%, #faaca8 100%);
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="../assets/styles/index.css">
+</head>
+
+<body class="main-background w-screen h-screen relative>
+    <div class=" container mx-auto">
+    <!-- bar button -->
+    <button id="bar">
+        <div class="p-3">
+            <i class="fa-solid fa-bars text-2xl"></i>
+        </div>
+    </button>
+    <!-- menu -->
+    <div id="menu" class="relative inline-block">
+        <div class="p-2">
+            <ul class="flex flex-row text-lg font-bold primary-font">
+                <li class="px-5">Contact</li>
+                <li class="px-5">Projects</li>
+                <li class="px-5">More Infor</li>
+            </ul>
+        </div>
+    </div>
+    </div>
+
+    <!-- greeting -->
+    <div id="greeting" class="w-4/5 md:w-3/5 lg:w-1/2 absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div class="p-5 text-center">
+            <h1 class="primary-font text-4xl md:text-5xl lg:text-7xl">VIET ANH LE</h1>
+            <ul id="bios" class="text-2xl pt-10 flex flex-col gap-y-3">
+            </ul>
+        </div>
+    </div>
+
+    <div id="tech-stack" class="absolute w-full z-0 opacity-40">
+        <ul class="flex flex-row justify-evenly">
+            <li><img class="tech" src="../assets/imgs/nodejs_logo.png" alt="nodejs"></li>
+            <li><img class="tech" src="../assets/imgs/d1198bac8e4ced0d89d5e5983061f418.png" alt="nestjs"></li>
+            <li><img class="tech" src="../assets/imgs/35_prisma.3acb052337.png" alt="prisma"></li>
+            <li><img class="tech" src="../assets/imgs/JavaScript-logo.png" alt="javascript"></li>
+            <li><img class="tech" src="../assets/imgs/Typescript_logo_2020.svg.png" alt="typescript"></li>
+            <li><img class="tech" src="../assets/imgs/mongodb.png" alt="mongodb"></li>
+            <li><img class="tech" src="../assets/imgs/Postgresql_elephant.svg.png" alt="postgresql"></li>
+            <li><img class="tech" src="../assets/imgs/React-icon.svg.png" alt="reactjs"></li>
+            <li><img class="tech" src="../assets/imgs/Tailwind_CSS_Logo.svg.png" alt="tailwindcss"></li>
+            <li><img class="tech" src="../assets/imgs/1200px-HTML5_logo_and_wordmark.svg.png" alt="html"></li>
+            <li><img class="tech" src="../assets/imgs/CSS3_logo_and_wordmark.svg.png" alt="css"></li>
+        </ul>
+    </div>
+
+    <script type="module" src="../assets/js/index.js"></script>
+</body>
+
+</html>
