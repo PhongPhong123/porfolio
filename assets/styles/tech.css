@@ -10,37 +10,3 @@
 .fly {
     animation: fly 2s linear infinite;
 }
-
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes fly {
-
-    0% {
-        opacity: 0;
-        transform: translateY(80vh);
-    }
-
-    25% {
-        opacity: 0.2;
-        transform: translateY(70vh);
-    }
-
-    50% {
-        opacity: 0.7;
-        transform: translateY(50vh);
-    }
-
-    100% {
-        opacity: 0;
-        transform: translateY(0vh);
-    }
-
-}

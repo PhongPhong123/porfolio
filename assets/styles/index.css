@@ -1,6 +1,12 @@
+@import url('./animations.css');
+@import url('./greeting.css');
 @import url('./cursor.css');
-@import url('./menu.css');
 @import url('./tech.css');
+@import url('./navigate.css');
+
+html {
+    scroll-behavior: smooth;
+}
 
 .primary-font {
     font-family: 'Press Start 2P', cursive;
@@ -8,4 +14,13 @@
 
 .secondary-font {
     font-family: 'Manrope', sans-serif;
+}
+
+.moving-right {
+    transition: transform 0.25s linear;
+    cursor: pointer;
+}
+
+.moving-right:hover {
+    transform: translateX(50px);
 }

@@ -13,7 +13,7 @@
         href="https://fonts.googleapis.com/css2?family=Manrope:wght@800&family=Press+Start+2P&family=Roboto:ital,wght@0,400;0,700;1,500&display=swap"
         rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="../configs/taiwind.config.js"></script>
+    <script src="configs/taiwind.config.js"></script>
     <style type="text/tailwindcss">
         @layer utilities {
             .main-background {
@@ -21,55 +21,83 @@
             }
         }
     </style>
-    <link rel="stylesheet" href="../assets/styles/index.css">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 
-<body class="main-background w-screen h-screen relative>
-    <div class=" container mx-auto">
-    <!-- bar button -->
-    <button id="bar">
-        <div class="p-3">
-            <i class="fa-solid fa-bars text-2xl"></i>
+<body class="main-background w-screen container mx-auto">
+    <section id="greeting" class="h-screen relative w-full">
+        <!-- greeting -->
+        <div id="greeting"
+            class="w-4/5 md:w-3/5 lg:w-2/3 absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+            <div class="p-5 text-center">
+                <h1 id="my-name" class="primary-font text-3xl md:text-4xl lg:text-5xl">VIET ANH LE</h1>
+                <ul id="bios" class="text-2xl pt-10 flex flex-col gap-y-3">
+                </ul>
+            </div>
         </div>
-    </button>
-    <!-- menu -->
-    <div id="menu" class="relative inline-block">
-        <div class="p-2">
-            <ul class="flex flex-row text-lg font-bold primary-font">
-                <li class="px-5">Contact</li>
-                <li class="px-5">Projects</li>
-                <li class="px-5">More Infor</li>
+
+        <div id="tech-stack" class="absolute w-full z-0 opacity-20">
+            <ul class="flex flex-row justify-evenly">
+                <li><img class="tech" src="images/nodejs_logo.png" alt="nodejs"></li>
+                <li><img class="tech" src="images/d1198bac8e4ced0d89d5e5983061f418.png" alt="nestjs"></li>
+                <li><img class="tech" src="images/35_prisma.3acb052337.png" alt="prisma"></li>
+                <li><img class="tech" src="images/JavaScript-logo.png" alt="javascript"></li>
+                <li><img class="tech" src="images/Typescript_logo_2020.svg.png" alt="typescript"></li>
+                <li><img class="tech" src="images/mongodb.png" alt="mongodb"></li>
+                <li><img class="tech" src="images/Postgresql_elephant.svg.png" alt="postgresql"></li>
+                <li><img class="tech" src="images/React-icon.svg.png" alt="reactjs"></li>
+                <li><img class="tech" src="images/Tailwind_CSS_Logo.svg.png" alt="tailwindcss"></li>
+                <li><img class="tech" src="images/1200px-HTML5_logo_and_wordmark.svg.png" alt="html"></li>
+                <li><img class="tech" src="images/CSS3_logo_and_wordmark.svg.png" alt="css"></li>
             </ul>
         </div>
-    </div>
-    </div>
+    </section>
 
-    <!-- greeting -->
-    <div id="greeting" class="w-4/5 md:w-3/5 lg:w-1/2 absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-        <div class="p-5 text-center">
-            <h1 class="primary-font text-4xl md:text-5xl lg:text-7xl">VIET ANH LE</h1>
-            <ul id="bios" class="text-2xl pt-10 flex flex-col gap-y-3">
-            </ul>
+    <section id="about" class="w-2/3 mx-auto relative flex items-center w-full invisible">
+        <div class="p-5">
+            <h1 class="font-bold text-2xl md:text-3xl lg:text-4xl pb-5 md:pb-10">About</h1>
+            <div class="font-bold md:text-lg lg:text-2xl flex flex-col gap-y-5 md:gap-y-10">
+                <p class="text-lg md:text-2xl lg:text-3xl">Hi, I'm Viet Anh. I'm currently a student at Duy Tan
+                    University. Majoring in
+                    Software Engineering.
+                </p>
+                <p>My future direction is to find a Back-end developer position in a certain company. And I also have
+                    Front-end skills so I
+                    can also take on both Back-end and Front-end positions.</p>
+                <p>However, Right now I want to focus on one of those two positions, to improve my skills rather than
+                    doing both at once.
+                    Once my skills are solid and expert, I will try to switch positions. And go far to Full-stack.</p>
+                <p>My strong point is that I enjoy learning a lot of new technology and I can spend my time on it. I am
+                    easy to get to know
+                    and have serious teamwork spirit, praised by my friends at school.
+                    But my weakness is very much related to my strength, like two sides of the same coin. Since I spend
+                    so much time
+                    learning so many new technologies I have little time to have fun with my friends and my theory about
+                    a certain
+                    technology may not be perfect and obviously not because of that can work with that technology.</p>
+                <p>I'll attach my CV just below and you can see exactly what I have.</p>
+            </div>
+            <span class="inline-block cv moving-right text-red-700 font-bold md:text-lg lg:text-2xl pt-5 md:pt-10">My
+                resume
+            </span>
+        </div>
+    </section>
+
+    <div id="navigate" class="fixed h-screen primary-font top-0">
+        <div class="p-3 h-full">
+            <div class="flex flex-col h-full justify-evenly items-center font-bold text-xs md:text-lg lg:text-xl">
+                <a href="#greeting" class="p-3 entry-page">Greeting</a>
+                <i class="fa-solid fa-down-long"></i>
+                <a href="#about" class="p-3 entry-page">About</a>
+                <i class="fa-solid fa-down-long"></i>
+                <a href="" class="p-3 entry-page">Projects</a>
+                <i class="fa-solid fa-down-long"></i>
+                <a href="" class="p-3 entry-page">Contact</a>
+            </div>
         </div>
     </div>
 
-    <div id="tech-stack" class="absolute w-full z-0 opacity-40">
-        <ul class="flex flex-row justify-evenly">
-            <li><img class="tech" src="../assets/imgs/nodejs_logo.png" alt="nodejs"></li>
-            <li><img class="tech" src="../assets/imgs/d1198bac8e4ced0d89d5e5983061f418.png" alt="nestjs"></li>
-            <li><img class="tech" src="../assets/imgs/35_prisma.3acb052337.png" alt="prisma"></li>
-            <li><img class="tech" src="../assets/imgs/JavaScript-logo.png" alt="javascript"></li>
-            <li><img class="tech" src="../assets/imgs/Typescript_logo_2020.svg.png" alt="typescript"></li>
-            <li><img class="tech" src="../assets/imgs/mongodb.png" alt="mongodb"></li>
-            <li><img class="tech" src="../assets/imgs/Postgresql_elephant.svg.png" alt="postgresql"></li>
-            <li><img class="tech" src="../assets/imgs/React-icon.svg.png" alt="reactjs"></li>
-            <li><img class="tech" src="../assets/imgs/Tailwind_CSS_Logo.svg.png" alt="tailwindcss"></li>
-            <li><img class="tech" src="../assets/imgs/1200px-HTML5_logo_and_wordmark.svg.png" alt="html"></li>
-            <li><img class="tech" src="../assets/imgs/CSS3_logo_and_wordmark.svg.png" alt="css"></li>
-        </ul>
-    </div>
-
-    <script type="module" src="../assets/js/index.js"></script>
+    <script type="module" src="js/index.js"></script>
 </body>
 
 </html>

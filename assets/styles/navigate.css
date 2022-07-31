@@ -1,0 +1,7 @@
+.entry-page {
+    transition: transform 0.5s linear;
+}
+
+.entry-page:hover {
+    transform: scale(1.2);
+}

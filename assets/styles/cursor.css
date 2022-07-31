@@ -4,15 +4,3 @@
     height: 30px;
     animation: 1s blinking step-end infinite;
 }
-
-@keyframes blinking {
-
-    from,
-    to {
-        color: transparent
-    }
-
-    50% {
-        background-color: black
-    }
-}
