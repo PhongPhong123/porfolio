@@ -3,9 +3,7 @@ import { mainGithubRepos } from './constants.js';
 class Repository {
     #repos;
 
-    constructor () {
-
-    }
+    constructor () { }
 
     setRepos (repos) {
         this.#repos = repos;
@@ -23,8 +21,9 @@ class Repository {
 
     async renderRepos (container) {
         for (const repo of this.#findMainRepos(this.#repos)) {
-            const repoDiv = document.createElement('div');
+            const repoDiv = document.createElement('a');
             repoDiv.setAttribute('class', 'repo');
+            repoDiv.setAttribute('href', repo.html_url);
             const repoInDiv = document.createElement('div');
             repoInDiv.setAttribute('class', 'border rounded bg-white');
             const wrap = document.createElement('div');
@@ -55,6 +54,7 @@ class Repository {
             wrap.appendChild(bottom);
             repoInDiv.appendChild(wrap);
             repoDiv.appendChild(repoInDiv);
+            repoDiv.style.animation = 'riseUp 0.5s linear';
             container.appendChild(repoDiv);
         }
     }

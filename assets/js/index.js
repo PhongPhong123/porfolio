@@ -1,6 +1,6 @@
 import TypeWriter from "./typewriter.js";
 import Repository from "./repository.js";
-import { myBios, biosContainer, techs, cv, about, project } from "./constants.js";
+import { myBios, biosContainer, techs, cv, about, project, greeting } from "./constants.js";
 
 class Program {
     /**
@@ -46,7 +46,27 @@ class Program {
         return responseJson;
     }
 
-    async main () {
+    #visibleAbout () {
+        if (!about.classList.contains('invisible')) { return; }
+        if (window.scrollY >= greeting.offsetHeight / 2 && window.scrollY <= greeting.offsetHeight) {
+            about.classList.remove('invisible');
+            const aboutContent = about.firstElementChild;
+            [...aboutContent.children].forEach(child => {
+                this.#applyAnimation(child, 'riseUp', 1, 1);
+            });
+        }
+    }
+
+    async #visibleProject () {
+        if (!project.classList.contains('invisible')) { return; }
+        if (window.scrollY >= (about.offsetHeight + greeting.offsetHeight) / 2 && window.scrollY <= about.offsetHeight + greeting.offsetHeight) {
+            project.classList.remove('invisible');
+            this.#repository.setRepos(await this.#fetchRepos('http://localhost:1808/github-repos'));
+            this.#repository.renderRepos(project.children[0]);
+        }
+    }
+
+    main () {
         this.#typeWriter.setTexts(myBios);
         this.#typeWriter.setContainer(biosContainer);
         this.#typeWriter.typeText(50);
@@ -57,15 +77,10 @@ class Program {
         cv.addEventListener('click', () => {
             window.open('http://localhost:1808/cv', '_blank');
         });
-        window.addEventListener('scroll', () => {
-            about.classList.remove('invisible');
-            const aboutContent = about.firstElementChild;
-            [...aboutContent.children].forEach(child => {
-                this.#applyAnimation(child, 'riseUp', 1, 1);
-            });
+        window.addEventListener('scroll', async () => {
+            this.#visibleAbout();
+            await this.#visibleProject();
         });
-        this.#repository.setRepos(await this.#fetchRepos('http://localhost:1808/github-repos'));
-        this.#repository.renderRepos(project.children[0]);
     }
 }
 
