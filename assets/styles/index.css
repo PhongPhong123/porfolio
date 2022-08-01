@@ -24,3 +24,12 @@ html {
 .moving-right:hover {
     transform: translateX(50px);
 }
+
+.repo {
+    transition: transform 0.25s linear;
+    cursor: pointer;
+}
+
+.repo:hover {
+    transform: scale(1.1);
+}

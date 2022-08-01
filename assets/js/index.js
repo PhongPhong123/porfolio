@@ -1,5 +1,6 @@
 import TypeWriter from "./typewriter.js";
-import { myBios, biosContainer, barButton, menu, techs, cv, about, greeting } from "./constants.js";
+import Repository from "./repository.js";
+import { myBios, biosContainer, techs, cv, about, project } from "./constants.js";
 
 class Program {
     /**
@@ -9,16 +10,18 @@ class Program {
     #typeWriter;
 
     /**
-     * @type {ClickEvent}
+     * @type {Repository}
      * @private
      */
-    #clickEvent;
+    #repository;
 
     /**
-     * @param {TypeWriter} typeWriter 
+     * @param {TypeWriter} typeWriter
+     * @param {Repository} repository
      */
-    constructor (typeWriter, clickEvent) {
+    constructor (typeWriter, repository) {
         this.#typeWriter = typeWriter;
+        this.#repository = repository;
     }
 
     /**
@@ -34,7 +37,16 @@ class Program {
         target.style.animation = `${animationName} ${speed === 0 && baseSpeed}s ${interation} linear`;
     }
 
-    main () {
+    /**
+     * @param {string} api 
+     */
+    async #fetchRepos (api) {
+        const response = await fetch(api);
+        const responseJson = await response.json();
+        return responseJson;
+    }
+
+    async main () {
         this.#typeWriter.setTexts(myBios);
         this.#typeWriter.setContainer(biosContainer);
         this.#typeWriter.typeText(50);
@@ -52,9 +64,12 @@ class Program {
                 this.#applyAnimation(child, 'riseUp', 1, 1);
             });
         });
+        this.#repository.setRepos(await this.#fetchRepos('http://localhost:1808/github-repos'));
+        this.#repository.renderRepos(project.children[0]);
     }
 }
 
 const typeWriter = new TypeWriter();
-const program = new Program(typeWriter);
+const repository = new Repository();
+const program = new Program(typeWriter, repository);
 program.main();

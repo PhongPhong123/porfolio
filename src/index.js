@@ -1,7 +1,18 @@
-const express = require('express');
-const http = require('http');
-const path = require('path');
-const config = require('../config');
+// const express = require('express');
+// const http = require('http');
+// const path = require('path');
+// const config = require('../config');
+// const fetch = require('node-fetch');
+// const dotenv = require('dotenv');
+
+import express from 'express';
+import http from 'http';
+import path from 'path';
+import config from '../config.js';
+import fetch from 'node-fetch';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 function main () {
     const app = express();
@@ -19,6 +30,12 @@ function main () {
 
     app.get('/cv', (req, res) => {
         return res.sendFile(path.join(config.__dirname, 'publics', 'Viet-Anh-Le_CV.pdf'));
+    });
+
+    app.get('/github-repos', async (req, res) => {
+        const response = await fetch(`https://api.github.com/users/${process.env.GITHUB_USERNAME}/repos`);
+        const responseJson = await response.json();
+        return res.json(responseJson);
     });
 
     const port = 1808;
