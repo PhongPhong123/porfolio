@@ -1,6 +1,7 @@
 import TypeWriter from "./typewriter.js";
 import Repository from "./repository.js";
-import { myBios, biosContainer, techs, cv, about, project, greeting } from "./constants.js";
+import LocalStorage from "./localStorage.js";
+import {about, biosContainer, cv, greeting, myBios, project, techs} from "./constants.js";
 
 class Program {
     /**
@@ -16,17 +17,25 @@ class Program {
     #repository;
 
     /**
+     * @type {LocalStorage}
+     * @private
+     * */
+    #localStorage
+
+    /**
      * @param {TypeWriter} typeWriter
      * @param {Repository} repository
      */
-    constructor (typeWriter, repository) {
+    constructor (typeWriter, repository, localStorage) {
         this.#typeWriter = typeWriter;
         this.#repository = repository;
+        this.#localStorage = localStorage;
     }
 
     /**
      * @param {Element} target
-     * @param {number} baseSpeed 
+     * @param interation
+     * @param {number} baseSpeed
      * @param {string} animationName
      */
     #applyAnimation (target, animationName, interation = null, baseSpeed = null) {
@@ -42,8 +51,7 @@ class Program {
      */
     async #fetchRepos (api) {
         const response = await fetch(api);
-        const responseJson = await response.json();
-        return responseJson;
+        return await response.json();
     }
 
     #visibleAbout () {
@@ -61,8 +69,17 @@ class Program {
         if (!project.classList.contains('invisible')) { return; }
         if (window.scrollY >= (about.offsetHeight + greeting.offsetHeight) / 2 && window.scrollY <= about.offsetHeight + greeting.offsetHeight) {
             project.classList.remove('invisible');
-            this.#repository.setRepos(await this.#fetchRepos('http://localhost:1808/github-repos'));
-            this.#repository.renderRepos(project.children[0]);
+            const reposLocalStorageKey = 'repositories';
+            let repos = []
+            if (!this.#localStorage.checkLocalStorage(reposLocalStorageKey)) {
+                repos = await this.#fetchRepos('http://localhost:1808/github-repos');
+                this.#localStorage.setLocalStorage(reposLocalStorageKey, repos);
+            }
+            if (this.#localStorage.checkLocalStorage(reposLocalStorageKey)) {
+                repos = this.#localStorage.getLocalStorage(reposLocalStorageKey);
+                this.#repository.setRepos(repos);
+            }
+            await this.#repository.renderRepos(project.children[0]);
         }
     }
 
@@ -86,5 +103,6 @@ class Program {
 
 const typeWriter = new TypeWriter();
 const repository = new Repository();
-const program = new Program(typeWriter, repository);
+const localStorage = new LocalStorage();
+const program = new Program(typeWriter, repository, localStorage);
 program.main();

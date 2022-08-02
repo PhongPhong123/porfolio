@@ -1,4 +1,4 @@
-import { mainGithubRepos } from './constants.js';
+import {mainGithubRepos} from './constants.js';
 
 class Repository {
     #repos;
@@ -39,8 +39,7 @@ class Repository {
             languages.setAttribute('class', 'flex gap-x-2 flex-wrap text-xs');
             async function fetchLanguages (api) {
                 const response = await fetch(api);
-                const responseJson = await response.json();
-                return responseJson;
+                return await response.json();
             }
             for (const language in await fetchLanguages(repo.languages_url)) {
                 const li = document.createElement('li');
