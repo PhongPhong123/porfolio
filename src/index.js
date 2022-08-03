@@ -38,7 +38,7 @@ function main () {
         return res.json(responseJson);
     });
 
-    const port = 1808;
+    const port = process.env.PORT || 1808;
     httpServer.listen(port, () => {
         console.log('Running');
     });
