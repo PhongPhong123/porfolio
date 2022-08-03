@@ -72,7 +72,7 @@ class Program {
             const reposLocalStorageKey = 'repositories';
             let repos = []
             if (!this.#localStorage.checkLocalStorage(reposLocalStorageKey)) {
-                repos = await this.#fetchRepos('http://localhost:1808/github-repos');
+                repos = await this.#fetchRepos('https://vietanh-porfolio.herokuapp.com/github-repos');
                 this.#localStorage.setLocalStorage(reposLocalStorageKey, repos);
             }
             if (this.#localStorage.checkLocalStorage(reposLocalStorageKey)) {
