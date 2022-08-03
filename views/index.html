@@ -27,10 +27,9 @@
 <body class="main-background w-screen container mx-auto">
     <section id="greeting" class="h-screen relative w-full">
         <!-- greeting -->
-        <div id="greeting"
-            class="w-4/5 md:w-3/5 lg:w-2/3 absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div class="w-4/5 md:w-3/5 lg:w-2/3 absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
             <div class="p-5 text-center">
-                <h1 id="my-name" class="primary-font text-3xl md:text-4xl lg:text-5xl">VIET ANH LE</h1>
+                <h1 id="my-name" class="drop-shadow-md primary-font text-3xl md:text-4xl lg:text-5xl">VIET ANH LE</h1>
                 <ul id="bios" class="text-2xl pt-10 flex flex-col gap-y-3">
                 </ul>
             </div>
@@ -57,17 +56,17 @@
         <div class="p-5">
             <h1 class="font-bold text-2xl md:text-3xl lg:text-4xl pb-5 md:pb-10">About</h1>
             <div class="font-bold md:text-lg lg:text-2xl flex flex-col gap-y-5 md:gap-y-10">
-                <p class="text-lg md:text-2xl lg:text-3xl">Hi, I'm Viet Anh. I'm currently a student at Duy Tan
+                <p class="text-lg md:text-2xl lg:text-3xl drop-shadow-md">Hi, I'm Viet Anh. I'm currently a student at Duy Tan
                     University. Majoring in
                     Software Engineering.
                 </p>
-                <p>My future direction is to find a Back-end developer position in a certain company. And I also have
+                <p class="drop-shadow-md">My future direction is to find a Back-end developer position in a certain company. And I also have
                     Front-end skills so I
                     can also take on both Back-end and Front-end positions.</p>
-                <p>However, Right now I want to focus on one of those two positions, to improve my skills rather than
+                <p class="drop-shadow-md">However, Right now I want to focus on one of those two positions, to improve my skills rather than
                     doing both at once.
                     Once my skills are solid and expert, I will try to switch positions. And go far to Full-stack.</p>
-                <p>My strong point is that I enjoy learning a lot of new technology and I can spend my time on it. I am
+                <p class="drop-shadow-md">My strong point is that I enjoy learning a lot of new technology and I can spend my time on it. I am
                     easy to get to know
                     and have serious teamwork spirit, praised by my friends at school.
                     But my weakness is very much related to my strength, like two sides of the same coin. Since I spend
@@ -75,9 +74,9 @@
                     learning so many new technologies I have little time to have fun with my friends and my theory about
                     a certain
                     technology may not be perfect and obviously not because of that can work with that technology.</p>
-                <p>I'll attach my CV just below and you can see exactly what I have.</p>
+                <p class="drop-shadow-md">I'll attach my CV just below and you can see exactly what I have.</p>
             </div>
-            <span class="inline-block cv moving-right text-red-700 font-bold md:text-lg lg:text-2xl pt-5 md:pt-10">My
+            <span class="inline-block cv moving-right text-red-700 font-bold md:text-lg lg:text-2xl pt-5 md:pt-10 drop-shadow-md">My
                 resume
             </span>
         </div>
@@ -89,16 +88,58 @@
         </div>
     </section>
 
+    <section id="contact" class="w-2/3 mx-auto h-screen">
+        <div class="p-5 relative top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+            <div>
+                <ul class="flex flex-row justify-evenly">
+                    <li class="social drop-shadow-lg">
+                        <a href="https://www.facebook.com/profile.php?id=100009701613657">
+                            <img class="w-8 md:w-10 lg:w-12 mx-auto" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/facebook/facebook-original.svg" />
+                            <span class="font-bold">Le Viet Anh</span>
+                        </a>
+                    </li>
+                    <li class="social drop-shadow-lg">
+                        <a href="https://www.linkedin.com/in/viet-anh-le-033b29227/">
+                            <img class="w-8 md:w-10 lg:w-12 mx-auto" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" />
+                            <span class="font-bold">Viet Anh Le</span>
+                        </a>
+                    </li>
+                    <li class="social drop-shadow-lg">
+                        <a href="https://github.com/VietAnh188">
+                            <img class="w-8 md:w-10 lg:w-12 mx-auto" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" />
+                            <span class="font-bold">VietAnh188</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="pt-10">
+                <h2 class="primary-font text-center">Send me email:</h2>
+                <form class="w-2/3 mx-auto">
+                    <div class="py-3">
+                        <label for="your-email" class="primary-font text-xs">Your email:</label>
+                        <input id="your-email" class="drop-shadow-md w-full md:w-3/4 md:float-right rounded-md" type="text">
+                    </div>
+                    <div>
+                        <textarea class="w-full rounded-md drop-shadow-md" name="email-content" id="email-content" rows="4"></textarea>
+                    </div>
+                    <div class="md:flex md:justify-center">
+                        <button class="send-email px-4 py-3 rounded-md bg-white font-bold md:w-1/2 drop-shadow-md">Send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
     <div id="navigate" class="fixed h-screen primary-font top-0">
         <div class="p-3 h-full">
             <div class="flex flex-col h-full justify-evenly items-center font-bold text-xs md:text-lg lg:text-xl">
-                <a href="#greeting" class="p-3 entry-page">Greeting</a>
+                <a href="#greeting" class="p-3 entry-page drop-shadow-md">Greeting</a>
                 <i class="fa-solid fa-down-long"></i>
-                <a href="#about" class="p-3 entry-page">About</a>
+                <a href="#about" class="p-3 entry-page drop-shadow-md">About</a>
                 <i class="fa-solid fa-down-long"></i>
-                <a href="#projects" class="p-3 entry-page">Projects</a>
+                <a href="#projects" class="p-3 entry-page drop-shadow-md">Projects</a>
                 <i class="fa-solid fa-down-long"></i>
-                <a href="" class="p-3 entry-page">Contact</a>
+                <a href="#contact" class="p-3 entry-page drop-shadow-md">Contact</a>
             </div>
         </div>
     </div>

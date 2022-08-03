@@ -33,3 +33,11 @@ html {
 .repo:hover {
     transform: scale(1.1);
 }
+
+.social, .send-email {
+    transition: transform 0.25s linear;
+}
+
+.social:hover, .send-email:hover {
+    transform: scale(1.1);
+}

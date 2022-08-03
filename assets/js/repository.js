@@ -22,17 +22,18 @@ class Repository {
     async renderRepos (container) {
         for (const repo of this.#findMainRepos(this.#repos)) {
             const repoDiv = document.createElement('a');
-            repoDiv.setAttribute('class', 'repo');
+            repoDiv.setAttribute('class', 'repo drop-shadow-md');
             repoDiv.setAttribute('href', repo.html_url);
             const repoInDiv = document.createElement('div');
             repoInDiv.setAttribute('class', 'border rounded bg-white');
             const wrap = document.createElement('div');
             wrap.setAttribute('class', 'p-2');
             const top = document.createElement('div');
+            top.setAttribute('class', 'flex items-center justify-between pb-3')
             const icon = document.createElement('i');
             icon.setAttribute('class', 'fa-solid fa-book-bookmark');
-            const repoName = document.createElement('span');
-            repoName.setAttribute('class', 'pl-2 font-bold text-xs md:text-md lg:text-lg');
+            const repoName = document.createElement('p');
+            repoName.setAttribute('class', 'w-4/5 primary-font pl-2 font-bold text-xs truncate');
             repoName.textContent = repo.name;
             const bottom = document.createElement('div');
             const languages = document.createElement('ul');

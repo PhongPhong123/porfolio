@@ -3,6 +3,9 @@ tailwind.config = {
         extend: {
             colors: {
 
+            },
+            text: {
+                "xxs": '5px'
             }
         }
     }
